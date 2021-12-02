@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>FishEye, galerie des travaux du photographe</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/photographer.css" />
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header role="banner">
+
+		<!-- <logo -->
+		<a href="index.html"><img src="medias/logo.png" alt="FishEye Home Page" /></a>
+
+		<!-- MAIN -->
+		<main>
+			<!-- photographer profile -->
+			<section aria-label="photographer profile" id="photographer">
+			</section>
+
+			<section id="media" aria-label="photographer's media">
+				<!-- DROPDOWN -->
+				<label for="OrderBy">Trier par</label>
+				<select id="OrderBy" aria-label="Order by" select-size="3">
+					<option disabled value="popularity" aria-hidden="true" style="color: whitesmoke;">──────────
+					</option>
+					<option value="popularity">Popularité</option>
+					<option disabled value="date" aria-hidden="true" style="color: whitesmoke;">──────────
+					</option>
+					<option value="date">Date</option>
+					<option disabled value="title" aria-hidden="true" style="color: whitesmoke;">──────────
+					</option>
+					<option value="title">Titre</option>
+				</select>
+			</section>
+
+
+			<!-- lightbox -->
+			<div id="lightboxBground" role="dialog" aria-label="image closeup view" aria-hidden="true">
+				<div id="lightboxContent"> </div>
+			</div>
+
+		</main>
+
+
+
+		<script src="js/photographer.js" type="module"></script>
+
+
+</body>
+
+</html>
