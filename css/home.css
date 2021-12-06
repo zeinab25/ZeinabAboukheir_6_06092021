@@ -41,8 +41,8 @@ article img {
 	box-shadow: 0px 4px 12px 0px #00000040;
 	border-radius: 50%;
 	height: 200px;
-	object-fit: cover;
 	width: 200px;
+	object-fit: cover;
 }
 
 article h2 {

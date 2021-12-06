@@ -1,4 +1,4 @@
-// Button appears when scrolling from the top of the page (add the class ".active"), and when click on it disappears (remove the class ".active") and redirects to content
+// Button go to main of the home page  appears when scrolling from the top (add the class ".active"), and when click on it disappears (remove the class ".active") and redirects to content
 const scrollButton = document.querySelector("#scrollButton");
 
 let goToMain = () => {

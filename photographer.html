@@ -42,7 +42,45 @@
 
 			<!-- lightbox -->
 			<div id="lightboxBground" role="dialog" aria-label="image closeup view" aria-hidden="true">
-				<div id="lightboxContent"> </div>
+				<div id="lightboxContent"> `<img src="medias/left-arrow.svg" alt="Previous image " id="previous"
+						role="link">
+					<div id="mediaLightbox">
+					</div>
+					<img src="medias/right-arrow.svg" alt="next image" id="next" role="link">
+					<button class="close" aria-label="Close dialog">
+						<img src="medias/closeLightbox.svg" alt="">
+					</button>`
+				</div>
+			</div>
+
+			<!-- form -->
+			<div id="formBground" role="dialog">
+				<form name="contact" aria-labelledby="form-contact-me">
+					<h1 id="form-contact-me">Contactez-moi</h1>
+					<button class="close closeForm" aria-label="Close Contact form">
+						<img src="medias/closeForm.svg" alt="">
+					</button>
+					<div class="formData">
+						<label for="first-name" id="label-first-name">Prénom</label><br>
+						<input type="text" name="first" id="first-name" aria-label="First name"
+							aria-labelledby="label-first-name" />
+					</div>
+					<div class="formData">
+						<label for="last-name" id="label-last-name">Nom</label><br>
+						<input type="text" name="last" id="last-name" aria-label="last name"
+							aria-labelledby="label-last-name" />
+					</div>
+					<div class="formData">
+						<label for="email" id="label-email">E-mail</label><br>
+						<input type="text" name="email" id="email" aria-label="email" aria-labelledby="label-email" />
+					</div>
+					<div class="formData">
+						<label for="message" id="label-message">Votre message</label><br>
+						<textarea name="message" id="message" aria-label="message" aria-labelledby="label-message"
+							cols="" rows="10"></textarea>
+					</div>
+					<input type="submit" class="button" value="Envoyer" />
+				</form>
 			</div>
 
 		</main>

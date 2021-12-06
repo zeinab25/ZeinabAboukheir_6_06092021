@@ -1,4 +1,4 @@
-import { Dom } from ".//displayDom.js";
+import { Dom } from "./displayDom.js";
 
 class Lightbox {
 	constructor(media) {
@@ -78,10 +78,10 @@ class Lightbox {
 				this.next(); // navigation right
 			} else if (e.code == "ArrowLeft") {
 				this.previous(); // navigation left
-			} else if (e.code == "Escape" || e.code == "Space") {
+			} else if (e.code == "Escape") {
 				lightboxBground.style.display = "none"; //close
 			}
-			e.preventDefault();
+			// e.preventDefault();
 		});
 	}
 }

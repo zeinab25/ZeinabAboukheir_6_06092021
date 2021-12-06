@@ -154,7 +154,7 @@ section#photographer button:hover {
 	min-width: 200px;
 	right: 40px;
 	font-size: 19px;
-	background-color: #d3573c;
+	background-color: #db8876;
 	z-index: 2;
 	padding: 15px;
 	border-top-left-radius: 5px;
@@ -207,7 +207,115 @@ section#photographer button:hover {
 	margin: 0 20px;
 }
 #mediaLightbox :is(img, video) {
-	max-height: 600px;
+	max-height: 800px;
+}
+
+/* form */
+#formBground {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.58);
+	top: 0;
+}
+
+/* @keyframes formClose {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+} */
+
+form {
+	display: flex;
+	flex-direction: column;
+	background-color: #e69c8c;
+	position: relative;
+	padding: 50px;
+	animation: formOpen 1s forwards;
+}
+
+@keyframes formOpen {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(40px);
+		opacity: 1;
+	}
+}
+
+form h1 {
+	color: black;
+	font-size: 50px;
+	max-width: 450px;
+	padding-bottom: 20px;
+}
+
+.formData {
+	font-size: 30px;
+	color: #494949;
+	padding-bottom: 20px;
+	width: 600px;
+}
+.formData input {
+	height: 60px;
+	font-size: 25px;
+}
+.formData :is(input, textarea) {
+	border-radius: 5px;
+	border: none;
+	width: 100%;
+}
+
+.closeForm {
+	top: 65px;
+	right: 45px;
+}
+.closeForm img {
+	min-width: 30px;
+}
+
+.button {
+	font-weight: bold;
+	padding: 25px 0;
+	margin-top: 20px;
+	border-radius: 5px;
+	background-color: #901c1c;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+	width: 170px;
+	/* animation: formClose 1s forwards; */
+}
+
+.formData[data-error]::after {
+	content: attr(data-error);
+	font-size: 17px;
+	font-weight: 500;
+	color: #5f0b0b;
+	font-weight: 700;
+	display: block;
+	margin-top: 5px;
+}
+
+.formData[data-error] input {
+	border: solid 3px #901c1c;
 }
 
 /* tablet and mobile version */
@@ -216,7 +324,6 @@ section#photographer button:hover {
 	h1 {
 		font-size: 35px;
 		font-weight: 500;
-		/* white-space: nowrap; */
 		margin-bottom: 0;
 	}
 
@@ -248,6 +355,20 @@ section#photographer button:hover {
 	#media select,
 	#counterLikes {
 		display: none;
+	}
+
+	/* form */
+	form h1 {
+		max-width: 270px;
+		font-size: 30px;
+	}
+	.formData {
+		font-size: 25px;
+		width: auto;
+	}
+	.closeForm {
+		top: 55px;
+		right: 40px;
 	}
 }
 
@@ -301,5 +422,10 @@ section#photographer button:hover {
 		height: 200px;
 		width: 335px;
 		object-position: 0 20%;
+	}
+
+	/* form */
+	form h1 {
+		max-width: 200px;
 	}
 }

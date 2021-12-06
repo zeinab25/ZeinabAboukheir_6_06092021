@@ -1,8 +1,8 @@
 class Dom {
 	static displayPhotographerHomepage(photographer) {
 		const descriptionPhotographer = `
-			<a  href="photographer.html?id=${photographer.id}" aria-label="${photographer.name}"> 
-				<img src="${photographer.portrait}" alt="">
+			<a href="photographer.html?id=${photographer.id}" aria-label="${photographer.name}"> 
+				<img  src="${photographer.portrait}" alt="">
 				<h2>${photographer.name}</h2>
 			</a>
 			<p class="localisation">${photographer.city}, ${photographer.country}</p>
@@ -39,7 +39,7 @@ class Dom {
 					)
 					.join(" ")}</ul>
 		</div>
-		<button title="Contact me">Contactez-moi</button>
+		<button title="Contact me" id="contact" >Contactez-moi</button>
 	</div>
 	<img src="${photographer.portrait}" alt="${photographer.alt}"></img>
 	`;
@@ -56,7 +56,7 @@ class Dom {
 			const mediaArticle = document.createElement("article");
 			mediaArticle.setAttribute("aria-label", "media");
 
-			mediaArticle.innerHTML = `<div id= "mediaCaption"><h2>${obj.title}</h2> <div "><p>${obj.price} €</p><div class="likes" aria-label="likes"><span >${obj.likes}</span><i class="far fa-heart heart"></i></div></div></div>`;
+			mediaArticle.innerHTML = `<div id= "mediaCaption"><h2>${obj.title}</h2> <div><p>${obj.price} €</p><div class="likes" aria-label="likes"><span >${obj.likes}</span><i class="far fa-heart heart"></i></div></div></div>`;
 			const linkMedia = document.createElement("div");
 			linkMedia.setAttribute("aria-label", "open image closeup view");
 			linkMedia.setAttribute("role", "link");
@@ -97,15 +97,9 @@ class Dom {
 		spanLikes.innerHTML = `${totalLikes} <i class="fas fa-heart"></i>`;
 	}
 
-	static litghbox() {
-		const lightboxContent = document.querySelector("#lightboxContent");
-		lightboxContent.innerHTML = `<img src="medias/left-arrow.svg" alt="Previous image " id="previous" role="link">
-        <div id="mediaLightbox">
-        </div>
-		<img src="medias/right-arrow.svg" alt="next image" id="next" role="link">
-		<button class="close" aria-label="Close dialog">
-			<img src="medias/close.svg" alt="">
-		</button>`;
+	static form(photographer) {
+		const h1 = document.querySelector("#formBground h1");
+		h1.innerHTML = `Contactez-moi ${photographer.name}`;
 	}
 }
 

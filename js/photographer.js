@@ -2,8 +2,9 @@ import { Dom } from "./modules/displayDom.js";
 import { fetchPhotographers } from "./modules/fetchPhotographers.js";
 import { FilterCurrentMedia, FilterMedia } from "./modules/filterMedia.js";
 import { Likes } from "./modules/counterLikes.js";
+import "./modules/form.js";
+import { Form } from "./modules/form.js";
 
-// function MediaPage
 (async () => {
 	const data = await fetchPhotographers();
 
@@ -38,19 +39,20 @@ import { Likes } from "./modules/counterLikes.js";
 	let containerMedia = document.createElement("div");
 	containerMedia.setAttribute("id", "containerMedia");
 
-	// lightbox initialisation (display dom static)
-	Dom.litghbox();
-
 	//  display media by popularity by default when the page loads
-	new FilterMedia(photographerMedia, "popularity", containerMedia);
+	new FilterMedia(photographerMedia, containerMedia).sortByPopularity();
 
-	// filter by categories
+	// // filter by categories
 	FilterCurrentMedia.byCategories(photographerMedia, containerMedia);
 
 	// display total likes when the page loads
 	Dom.displayLikes(photographer, Likes.counterlikes());
 
-	Likes.updateLikes();
+	// form
+	Dom.form(photographer);
+
+	Form.open();
+	Form.close();
 })();
 
 // dropDown style : delete the duplicate of the selected value with its stroke

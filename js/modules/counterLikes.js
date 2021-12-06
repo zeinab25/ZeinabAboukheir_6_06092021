@@ -17,7 +17,7 @@ class Likes {
 
 	// update counter likes at the heart's click
 	static updateLikes() {
-		this.counterlikes();
+		// this.counterlikes();
 		let totalLikes = this.counterlikes();
 		const likes = document.querySelectorAll(".likes");
 		likes.forEach((like) => {

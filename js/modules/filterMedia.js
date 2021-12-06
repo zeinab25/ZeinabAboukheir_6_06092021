@@ -3,53 +3,52 @@ import { Likes } from "./counterLikes.js";
 import { Lightbox } from "./lightbox.js";
 
 class FilterMedia {
-	constructor(photographerMedia, filter, containerMedia) {
+	constructor(photographerMedia, containerMedia) {
 		this.photographerMedia = photographerMedia;
-		this.filter = filter;
 		this.containerMedia = containerMedia;
+	}
 
-		switch (this.filter) {
-			case "popularity":
-				return this.filterByPopularity();
-				break;
-			case "date":
-				return this.filterByDate();
-				break;
-			case "title":
-				return this.filterByTitle();
-				break;
-			default:
-				return;
-		}
+	sortMedia(key) {
+		this.photographerMedia.sort((a, b) => {
+			let x;
+			let y;
+
+			switch (key) {
+				case "likes":
+					x = a.likes;
+					y = b.likes;
+					break;
+				case "date":
+					x = a.date;
+					y = b.date;
+					break;
+				case "title":
+					x = a.title;
+					y = b.title;
+					break;
+				default:
+					return;
+			}
+
+			return x > y ? 1 : x < y ? -1 : 0;
+		});
+
+		Dom.displayMedia(this.photographerMedia, this.containerMedia);
+		Likes.updateLikes();
+		new Lightbox(this.photographerMedia);
 	}
 
 	// media sorted by popularity
-	filterByPopularity() {
-		this.photographerMedia.sort((a, b) => a.likes - b.likes);
-		Dom.displayMedia(this.photographerMedia, this.containerMedia);
-		Likes.counterlikes();
-		new Lightbox(this.photographerMedia);
-	}
-	// media sorted by title
-	filterByTitle() {
-		this.photographerMedia.sort(function (a, b) {
-			return a.title.localeCompare(b.title, "en", { sensitivity: "base" });
-		});
-		Dom.displayMedia(this.photographerMedia, this.containerMedia);
-		Likes.counterlikes();
-		Likes.updateLikes();
-		new Lightbox(this.photographerMedia);
+	sortByPopularity() {
+		this.sortMedia("likes");
 	}
 
-	// media sorted  by date
-	filterByDate() {
-		this.photographerMedia.sort((a, b) => {
-			return Date.parse(a.date) - Date.parse(b.date);
-		});
-		Dom.displayMedia(this.photographerMedia, this.containerMedia);
-		Likes.counterlikes();
-		Likes.updateLikes();
-		new Lightbox(this.photographerMedia);
+	sortByDate() {
+		this.sortMedia("date");
+	}
+
+	sortByTitle() {
+		this.sortMedia("title");
 	}
 }
 
@@ -60,9 +59,9 @@ class FilterCurrentMedia {
 		dropDown.addEventListener("change", (e) => {
 			const filter = e.target.value;
 			if (filter == "popularity")
-				new FilterMedia(photographerMedia, "popularity", containerMedia);
-			if (filter == "title") new FilterMedia(photographerMedia, "title", containerMedia);
-			if (filter == "date") new FilterMedia(photographerMedia, "date", containerMedia);
+				new FilterMedia(photographerMedia, containerMedia).sortByPopularity();
+			if (filter == "title") new FilterMedia(photographerMedia, containerMedia).sortByTitle();
+			if (filter == "date") new FilterMedia(photographerMedia, containerMedia).sortByDate();
 		});
 	}
 }
