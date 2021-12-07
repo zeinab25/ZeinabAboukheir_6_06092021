@@ -214,7 +214,7 @@ section#photographer button:hover {
 	margin: 0 20px;
 }
 #mediaLightbox :is(img, video) {
-	max-height: 800px;
+	max-height: 500px;
 }
 
 /* form */
@@ -225,11 +225,11 @@ section#photographer button:hover {
 	position: fixed;
 	z-index: 2;
 	left: 0;
-	top: 0;
+	top: 0px;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.58);
-	top: 0;
+	overflow: scroll;
 }
 
 @keyframes formOpen {
@@ -256,7 +256,7 @@ form {
 	background-color: #e69c8c;
 	position: relative;
 	padding: 50px;
-	/* animation: formOpen 1s forwards; */
+	margin-top: 200px;
 }
 
 form h1 {
