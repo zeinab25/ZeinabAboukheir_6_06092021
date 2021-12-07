@@ -57,9 +57,9 @@ class Dom {
 			mediaArticle.setAttribute("aria-label", "media");
 
 			mediaArticle.innerHTML = `<div id= "mediaCaption"><h2>${obj.title}</h2> <div><p>${obj.price} €</p><div class="likes" aria-label="likes"><span >${obj.likes}</span><i class="far fa-heart heart"></i></div></div></div>`;
-			const linkMedia = document.createElement("div");
+			const linkMedia = document.createElement("a");
 			linkMedia.setAttribute("aria-label", "open image closeup view");
-			linkMedia.setAttribute("role", "link");
+			linkMedia.setAttribute("href", "#lightboxContent");
 			mediaArticle.insertAdjacentElement("afterbegin", linkMedia);
 			linkMedia.appendChild(this.displayImageOrVideo(obj));
 			containerMedia.appendChild(mediaArticle);

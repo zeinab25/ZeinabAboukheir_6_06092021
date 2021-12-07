@@ -34,6 +34,7 @@ class Form {
 		const formBground = document.querySelector("#formBground");
 		constactMe.addEventListener("click", () => {
 			formBground.style.display = "flex";
+			form.style.animation = "formOpen 1s forwards";
 		});
 	}
 
@@ -92,14 +93,16 @@ form.addEventListener("submit", function (e) {
 
 	if (checkSubmit) {
 		const formBground = document.querySelector("#formBground");
-		// const form = document.querySelector("#form");
-		formBground.style.display = "none";
+		form.style.animation = "formClose 1s forwards";
 
 		console.log("Prénom : " + firstName.value);
 		console.log("Nom : " + lastName.value);
 		console.log("Email : " + email.value);
 		console.log("Message : " + message.value);
 		form.reset();
+		setTimeout(() => {
+			formBground.style.display = "none";
+		}, 1000);
 	}
 });
 

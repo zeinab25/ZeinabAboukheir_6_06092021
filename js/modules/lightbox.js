@@ -12,13 +12,16 @@ class Lightbox {
 
 	open() {
 		const lightboxBground = document.querySelector("#lightboxBground");
-		const mediaDom = document.querySelectorAll("#containerMedia img,#containerMedia video");
+
+		const mediaDom = document.querySelectorAll("#containerMedia a");
 		mediaDom.forEach((elt) => {
 			elt.addEventListener("click", () => {
-				const srcMedia = elt.getAttribute("src");
+				const mediaElt = elt.querySelector("img, video");
+				const MediaSrc = mediaElt.getAttribute("src");
 				this.index = this.media.findIndex(
-					(obj) => obj.image == srcMedia || obj.video == srcMedia
+					(obj) => obj.image == MediaSrc || obj.video == MediaSrc
 				);
+
 				this.displayMedia();
 				lightboxBground.style.display = "flex";
 			});
