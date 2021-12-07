@@ -194,16 +194,17 @@ section#photographer button:hover {
 .close {
 	background-color: transparent;
 	border: none;
-}
-
-#previous img,
-#next img,
-.close img {
-	width: 22px;
 	cursor: pointer;
 }
 
+#previous,
+#next {
+	width: 45px;
+	min-width: 35px;
+}
+
 .close {
+	width: 35px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -303,7 +304,6 @@ form h1 {
 	cursor: pointer;
 	font-size: 20px;
 	width: 170px;
-	/* animation: formClose 1s forwards; */
 }
 
 .formData[data-error]::after {
@@ -395,11 +395,6 @@ form h1 {
 	#lightboxContent h2,
 	#mediaCaption {
 		font-size: 16px;
-	}
-	#previous,
-	#next,
-	.close img {
-		width: 15px;
 	}
 }
 
