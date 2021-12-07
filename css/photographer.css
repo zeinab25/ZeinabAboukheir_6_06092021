@@ -223,13 +223,12 @@ section#photographer button:hover {
 	align-items: center;
 	justify-content: center;
 	position: fixed;
-	z-index: 2;
+	z-index: 3;
 	left: 0;
 	top: 0px;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.58);
-	overflow: scroll;
 }
 
 @keyframes formOpen {
@@ -255,13 +254,13 @@ form {
 	flex-direction: column;
 	background-color: #e69c8c;
 	position: relative;
-	padding: 50px;
-	margin-top: 200px;
+	padding: 30px;
+	top: -40px;
 }
 
 form h1 {
 	color: black;
-	font-size: 50px;
+	font-size: 55px;
 	max-width: 450px;
 	padding-bottom: 20px;
 }
@@ -269,11 +268,11 @@ form h1 {
 .formData {
 	font-size: 30px;
 	color: #494949;
-	padding-bottom: 20px;
+	padding-bottom: 5px;
 	width: 600px;
 }
 .formData input {
-	height: 60px;
+	height: 70px;
 	font-size: 25px;
 }
 .formData :is(input, textarea) {
@@ -283,7 +282,7 @@ form h1 {
 }
 
 .closeForm {
-	top: 65px;
+	top: 50px;
 	right: 45px;
 }
 .closeForm img {
@@ -293,7 +292,7 @@ form h1 {
 .button {
 	font-weight: bold;
 	padding: 25px 0;
-	margin-top: 20px;
+	margin-top: 5px;
 	border-radius: 5px;
 	background-color: #901c1c;
 	color: white;
@@ -369,7 +368,7 @@ form h1 {
 		width: auto;
 	}
 	.closeForm {
-		top: 55px;
+		top: 40px;
 		right: 40px;
 	}
 }
@@ -422,6 +421,10 @@ form h1 {
 	}
 
 	/* form */
+	form {
+		/* top: 100px; */
+		overflow: scroll;
+	}
 	form h1 {
 		max-width: 200px;
 	}
