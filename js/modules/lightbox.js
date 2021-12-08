@@ -68,9 +68,11 @@ class Lightbox {
 
 	close() {
 		const close = document.querySelector(".close");
+		const main = document.querySelector("main");
 		const lightboxBground = document.querySelector("#lightboxBground");
 		close.addEventListener("click", () => {
 			lightboxBground.style.display = "none";
+			main.style.position = "relative";
 		});
 	}
 

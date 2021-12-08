@@ -43,9 +43,11 @@ class Form {
 	static close() {
 		const close = document.querySelector(".closeForm");
 		const formBground = document.querySelector("#formBground");
+		const main = document.querySelector("main");
 
 		close.addEventListener("click", (e) => {
 			formBground.style.display = "none";
+			main.style.position = "relative";
 			e.preventDefault();
 		});
 	}
@@ -95,6 +97,7 @@ form.addEventListener("submit", function (e) {
 
 	if (checkSubmit) {
 		const formBground = document.querySelector("#formBground");
+		const main = document.querySelector("main");
 		form.style.animation = "formClose 1s forwards";
 
 		console.log("Prénom : " + firstName.value);
@@ -104,6 +107,7 @@ form.addEventListener("submit", function (e) {
 		form.reset();
 		setTimeout(() => {
 			formBground.style.display = "none";
+			main.style.position = "relative";
 		}, 1000);
 	}
 });
