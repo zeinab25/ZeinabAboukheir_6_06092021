@@ -221,7 +221,7 @@ section#photographer button:hover {
 #formBground {
 	display: none;
 	align-items: center;
-	justify-content: center;
+	flex-direction: column;
 	position: fixed;
 	z-index: 3;
 	left: 0;
@@ -229,6 +229,7 @@ section#photographer button:hover {
 	height: 100%;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.58);
+	overflow: scroll;
 }
 
 @keyframes formOpen {
@@ -425,11 +426,6 @@ form h1 {
 		object-position: 0 20%;
 	}
 
-	/* form */
-	form {
-		/* top: 100px; */
-		overflow: scroll;
-	}
 	form h1 {
 		max-width: 200px;
 	}
