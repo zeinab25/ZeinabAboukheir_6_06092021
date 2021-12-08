@@ -363,8 +363,13 @@ form h1 {
 		max-width: 270px;
 		font-size: 30px;
 	}
+
+	.formData input {
+		height: 50px;
+	}
+
 	.formData {
-		font-size: 25px;
+		font-size: 20px;
 		width: auto;
 	}
 	.closeForm {
