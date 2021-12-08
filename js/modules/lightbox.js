@@ -12,7 +12,7 @@ class Lightbox {
 
 	open() {
 		const lightboxBground = document.querySelector("#lightboxBground");
-
+		const main = document.querySelector("main");
 		const mediaDom = document.querySelectorAll("#containerMedia a");
 		mediaDom.forEach((elt) => {
 			elt.addEventListener("click", () => {
@@ -21,7 +21,7 @@ class Lightbox {
 				this.index = this.media.findIndex(
 					(obj) => obj.image == MediaSrc || obj.video == MediaSrc
 				);
-
+				main.style.position = "fixed";
 				this.displayMedia();
 				lightboxBground.style.display = "flex";
 			});

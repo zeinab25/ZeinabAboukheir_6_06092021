@@ -32,9 +32,11 @@ class Form {
 	static open() {
 		const constactMe = document.querySelector("#contact");
 		const formBground = document.querySelector("#formBground");
+		const main = document.querySelector("main");
 		constactMe.addEventListener("click", () => {
 			formBground.style.display = "flex";
 			form.style.animation = "formOpen 1s forwards";
+			main.style.position = "fixed";
 		});
 	}
 
