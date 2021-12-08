@@ -15,12 +15,12 @@ class FilterMedia {
 
 			switch (key) {
 				case "likes":
-					x = a.likes;
-					y = b.likes;
+					x = b.likes;
+					y = a.likes;
 					break;
 				case "date":
-					x = a.date;
-					y = b.date;
+					x = b.date;
+					y = a.date;
 					break;
 				case "title":
 					x = a.title;
