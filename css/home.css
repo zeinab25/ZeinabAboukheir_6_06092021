@@ -1,10 +1,11 @@
 /* Header */
-header {
-	max-width: 930px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
+
+header nav {
+	position: absolute;
+	top: 60px;
+	right: 0;
+	left: 50%;
+	transform: translate(-50%);
 }
 
 ul {
@@ -13,7 +14,6 @@ ul {
 
 /* Main */
 main {
-	position: relative;
 	padding-top: 100px;
 }
 
@@ -21,8 +21,8 @@ h1 {
 	color: #901c1c;
 	font-size: 35px;
 	position: absolute;
-	right: 0px;
-	top: -52px;
+	right: 20px;
+	top: 50px;
 	white-space: nowrap;
 }
 section {
@@ -99,24 +99,16 @@ article h2 {
 /* tablet and mobile version */
 /* Header with h1 */
 @media screen and (max-width: 1430px) {
-	header {
-		display: block;
-		width: 100%;
-		max-width: 100%;
-	}
-	h1 {
-		top: -120px;
-	}
-
-	header img {
-		padding-bottom: 40px;
+	header nav {
+		position: relative;
+		top: 50px;
 	}
 }
 
 @media screen and (max-width: 670px) {
 	h1 {
 		font-size: 18px;
-		top: -132px;
+		top: 55px;
 	}
 
 	header img {
@@ -126,12 +118,10 @@ article h2 {
 
 @media screen and (max-width: 375px) {
 	h1 {
-		top: -115px;
-		left: 0;
-		text-align: center;
-	}
-
-	header img {
-		padding-bottom: 80px;
+		top: 100px;
+		right: 0;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%);
 	}
 }
