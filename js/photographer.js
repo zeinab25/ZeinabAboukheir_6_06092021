@@ -2,8 +2,7 @@ import { Dom } from "./modules/displayDom.js";
 import { fetchPhotographers } from "./modules/fetchPhotographers.js";
 import { FilterCurrentMedia, FilterMedia } from "./modules/filterMedia.js";
 import { Likes } from "./modules/counterLikes.js";
-import "./modules/form.js";
-import { Form } from "./modules/form.js";
+import { eventInit } from "./modules/form.js";
 
 (async () => {
 	const data = await fetchPhotographers();
@@ -50,9 +49,8 @@ import { Form } from "./modules/form.js";
 
 	// form
 	Dom.form(photographer);
-
-	Form.open();
-	Form.close();
+	eventInit.openEvent();
+	eventInit.closeEvent();
 })();
 
 // dropDown style : delete the duplicate of the selected value with its stroke
@@ -64,10 +62,8 @@ function dropDownHidden() {
 	optionsFilter.forEach((option) => {
 		if (option.value == filter) {
 			option.style.display = "none";
-			option.setAttribute("aria-hidden", "true");
 		} else {
 			option.style.display = "block";
-			option.removeAttribute("aria-hidden");
 		}
 	});
 }

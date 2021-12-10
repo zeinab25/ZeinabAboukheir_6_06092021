@@ -17,11 +17,10 @@ class Likes {
 
 	// update counter likes at the heart's click
 	static updateLikes() {
-		// this.counterlikes();
 		let totalLikes = this.counterlikes();
 		const likes = document.querySelectorAll(".likes");
 		likes.forEach((like) => {
-			const heart = like.querySelector(".heart");
+			const heart = like.querySelector(".likes button");
 			let likeCurrent = like.querySelector("span");
 			let likeNumber = parseInt(likeCurrent.textContent);
 			heart.addEventListener("click", () => {

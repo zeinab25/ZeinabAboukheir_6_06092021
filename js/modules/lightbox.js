@@ -6,6 +6,7 @@ class Lightbox {
 		this.open();
 		this.close();
 		this.navigation();
+		this.closeEvent();
 		this.keyboardEvent();
 	}
 	static index = "";
@@ -17,18 +18,27 @@ class Lightbox {
 		mediaDom.forEach((elt) => {
 			elt.addEventListener("click", () => {
 				const mediaElt = elt.querySelector("img, video");
-				const MediaSrc = mediaElt.getAttribute("src");
+				const MediaSrc = mediaElt.getAttribute("src"); // get  the selected media source
 				this.index = this.media.findIndex(
 					(obj) => obj.image == MediaSrc || obj.video == MediaSrc
-				);
+				); //  use the findIndex method to find the index of the selected media in the photographer's media table
 				main.style.position = "fixed";
-				this.displayMedia();
-				lightboxBground.style.display = "flex";
+				this.displayMedia(); // add the selected media in the lightbox thanks to the find index
+				lightboxBground.style.display = "flex"; // the ligtbox is visible at the click of the media
+				const ariaHidden = document.querySelectorAll("header, section");
+				ariaHidden.forEach((elt) => {
+					elt.setAttribute("aria-hidden", "true"); // the screen reader has no access anymore to the elements in the background
+				});
+				const tabHidden = document.querySelectorAll("header a,  section a, section button");
+				tabHidden.forEach((elt) => {
+					elt.setAttribute("tabindex", "-1"); //tabulation is not available anymore for buttons and background link
+				});
 			});
 		});
 	}
 
 	displayMedia() {
+		// add the selected media in the lightbox thanks to the find index
 		const mediaLightbox = document.querySelector("#mediaLightbox");
 		mediaLightbox.innerHTML = "";
 		const title = document.createElement("h2");
@@ -52,7 +62,7 @@ class Lightbox {
 
 	next() {
 		if (this.index < this.media.length - 1) {
-			//prend pas en compte le dernier index , le bouton nest n'est plus actif
+			// the last index is omits because the button is not active anymore
 			this.index++;
 			this.displayMedia();
 		}
@@ -60,33 +70,47 @@ class Lightbox {
 
 	previous() {
 		if (this.index > 0) {
-			//prend pas en compte le premier index , car le bouton ne doit plus actif
+			//the first index is omits, the button is not active anymore
 			this.index--;
 			this.displayMedia();
 		}
 	}
 
 	close() {
-		const close = document.querySelector(".close");
 		const main = document.querySelector("main");
 		const lightboxBground = document.querySelector("#lightboxBground");
-		close.addEventListener("click", () => {
-			lightboxBground.style.display = "none";
-			main.style.position = "relative";
+		lightboxBground.style.display = "none"; // la ligtbox is not visible anymore
+		main.style.position = "relative";
+
+		// the screen reader again accesses the element of the photographer page when closing the lightbox
+		const ariaHidden = document.querySelectorAll("header, section");
+		ariaHidden.forEach((elt) => {
+			elt.removeAttribute("aria-hidden");
+		});
+
+		// the tab is again available for the buttons and links of the photographer page
+		const tabHidden = document.querySelectorAll("header a,  section a, section button");
+		tabHidden.forEach((elt) => {
+			elt.removeAttribute("tabindex");
+		});
+	}
+
+	closeEvent() {
+		const closeElt = document.querySelector(".close");
+		closeElt.addEventListener("click", () => {
+			this.close();
 		});
 	}
 
 	keyboardEvent() {
-		const lightboxBground = document.querySelector("#lightboxBground");
 		document.addEventListener("keydown", (e) => {
 			if (e.code == "ArrowRight") {
 				this.next(); // navigation right
 			} else if (e.code == "ArrowLeft") {
 				this.previous(); // navigation left
 			} else if (e.code == "Escape") {
-				lightboxBground.style.display = "none"; //close
+				this.close(); //close
 			}
-			// e.preventDefault();
 		});
 	}
 }

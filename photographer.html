@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0 , minimum-scale=0.5" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>FishEye, galerie des travaux du photographe</title>
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/photographer.css" />
@@ -16,84 +16,84 @@
 
 		<!-- <logo -->
 		<a href="index.html"><img src="medias/logo.png" alt="FishEye Home Page" /></a>
+	</header>
+	<!-- MAIN -->
+	<main>
+		<!-- photographer profile -->
+		<section aria-label="photographer profile" id="photographer">
+		</section>
 
-		<!-- MAIN -->
-		<main>
-			<!-- photographer profile -->
-			<section aria-label="photographer profile" id="photographer">
-			</section>
-
-			<section id="media" aria-label="photographer's media">
-				<!-- DROPDOWN -->
-				<label for="OrderBy">Trier par</label>
-				<select id="OrderBy" aria-label="Order by" select-size="3">
-					<option disabled value="popularity" aria-hidden="true" style="color: whitesmoke;">──────────
-					</option>
-					<option value="popularity">Popularité</option>
-					<option disabled value="date" aria-hidden="true" style="color: whitesmoke;">──────────
-					</option>
-					<option value="date">Date</option>
-					<option disabled value="title" aria-hidden="true" style="color: whitesmoke;">──────────
-					</option>
-					<option value="title">Titre</option>
-				</select>
-			</section>
+		<section id="media" aria-label="photographer's media">
+			<!-- DROPDOWN -->
+			<label for="OrderBy">Trier par</label>
+			<select id="OrderBy" aria-label="Order by" select-size="3">
+				<option disabled value="popularity" aria-hidden="true" style="color: whitesmoke;">──────────
+				</option>
+				<option value="popularity">Popularité</option>
+				<option disabled value="date" aria-hidden="true" style="color: whitesmoke;">──────────
+				</option>
+				<option value="date">Date</option>
+				<option disabled value="title" aria-hidden="true" style="color: whitesmoke;">──────────
+				</option>
+				<option value="title">Titre</option>
+			</select>
+		</section>
 
 
-			<!-- lightbox -->
-			<div id="lightboxBground" role="dialog" aria-label="image closeup view" aria-hidden="true">
-				<div id="lightboxContent">
+		<!-- lightbox -->
+		<div id="lightboxBground" role="dialog" aria-label="image closeup view" aria-hidden="true">
+			<div id="lightboxContent">
 
-					<button id="previous" aria-label="previous image" role="link">
-						<img src="medias/left-arrow.svg" alt=""></button>
+				<button id="previous" aria-label="previous image" role="link">
+					<img src="medias/left-arrow.svg" alt=""></button>
 
-					<div id="mediaLightbox"></div>
+				<div id="mediaLightbox"></div>
 
-					<button id="next" aria-label="next image" role="link">
-						<img src="medias/right-arrow.svg" alt=""></button>
+				<button id="next" aria-label="next image" role="link">
+					<img src="medias/right-arrow.svg" alt=""></button>
 
-					<button class="close" aria-label="Close dialog">
+				<button class="close" aria-label="Close dialog">
 
-						<img src="medias/closeLightbox.svg" alt="">
-					</button>
+					<img src="medias/closeLightbox.svg" alt="">
+				</button>
+			</div>
+		</div>
+
+		<!-- form -->
+		<div id="formBground" role="dialog">
+			<form name="contact" aria-labelledby="form-contact-me">
+				<h1 id="form-contact-me">Contactez-moi</h1>
+				<button class="close closeForm" aria-label="Close Contact form" type="button">
+					<img src="medias/closeForm.svg" alt="">
+				</button>
+				<div class="formData">
+					<label for="first-name" id="label-first-name">Prénom</label><br>
+					<input type="text" name="first" id="first-name" aria-label="First name"
+						aria-labelledby="label-first-name" />
 				</div>
-			</div>
+				<div class="formData">
+					<label for="last-name" id="label-last-name">Nom</label><br>
+					<input type="text" name="last" id="last-name" aria-label="last name"
+						aria-labelledby="label-last-name" />
+				</div>
+				<div class="formData">
+					<label for="email" id="label-email">E-mail</label><br>
+					<input type="text" name="email" id="email" aria-label="email" aria-labelledby="label-email" />
+				</div>
+				<div class="formData">
+					<label for="message" id="label-message">Votre message</label><br>
+					<textarea name="message" id="message" aria-label="message" aria-labelledby="label-message" cols=""
+						rows="10"></textarea>
+				</div>
+				<input type="submit" class="button" value="Envoyer" />
+			</form>
+		</div>
 
-			<!-- form -->
-			<div id="formBground" role="dialog">
-				<form name="contact" aria-labelledby="form-contact-me">
-					<h1 id="form-contact-me">Contactez-moi</h1>
-					<button class="close closeForm" aria-label="Close Contact form">
-						<img src="medias/closeForm.svg" alt="">
-					</button>
-					<div class="formData">
-						<label for="first-name" id="label-first-name">Prénom</label><br>
-						<input type="text" name="first" id="first-name" aria-label="First name"
-							aria-labelledby="label-first-name" />
-					</div>
-					<div class="formData">
-						<label for="last-name" id="label-last-name">Nom</label><br>
-						<input type="text" name="last" id="last-name" aria-label="last name"
-							aria-labelledby="label-last-name" />
-					</div>
-					<div class="formData">
-						<label for="email" id="label-email">E-mail</label><br>
-						<input type="text" name="email" id="email" aria-label="email" aria-labelledby="label-email" />
-					</div>
-					<div class="formData">
-						<label for="message" id="label-message">Votre message</label><br>
-						<textarea name="message" id="message" aria-label="message" aria-labelledby="label-message"
-							cols="" rows="10"></textarea>
-					</div>
-					<input type="submit" class="button" value="Envoyer" />
-				</form>
-			</div>
-
-		</main>
+	</main>
 
 
 
-		<script src="js/photographer.js" type="module"></script>
+	<script src="js/photographer.js" type="module"></script>
 
 
 </body>

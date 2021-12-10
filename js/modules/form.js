@@ -6,6 +6,7 @@ const form = document.forms["contact"];
 
 let checkSubmit;
 
+// checks the entry conditions on the inputs
 class Form {
 	constructor(input, messageError) {
 		this.input = input;
@@ -28,27 +29,57 @@ class Form {
 			checkSubmit = false;
 		}
 	}
+}
 
-	static open() {
+class eventInit {
+	static openEvent() {
 		const constactMe = document.querySelector("#contact");
 		const formBground = document.querySelector("#formBground");
 		const main = document.querySelector("main");
+
 		constactMe.addEventListener("click", () => {
-			formBground.style.display = "flex";
+			formBground.style.display = "flex"; // at the click on the button 'contact me' , the form appears
 			form.style.animation = "formOpen 1s forwards";
 			main.style.position = "fixed";
+			const ariaHidden = document.querySelectorAll("header, section");
+			ariaHidden.forEach((elt) => {
+				elt.setAttribute("aria-hidden", "true");
+			}); // the screen reader has no access anymore to the elements in the background
+			const tabHidden = document.querySelectorAll("header a,  section a, section button");
+			tabHidden.forEach((elt) => {
+				elt.setAttribute("tabindex", "-1");
+			}); //tabulation is not available anymore for buttons and background link
 		});
 	}
 
 	static close() {
-		const close = document.querySelector(".closeForm");
 		const formBground = document.querySelector("#formBground");
 		const main = document.querySelector("main");
 
-		close.addEventListener("click", (e) => {
-			formBground.style.display = "none";
-			main.style.position = "relative";
-			e.preventDefault();
+		formBground.style.display = "none"; // the form is not visible anymore
+
+		main.style.position = "relative";
+
+		const ariaHidden = document.querySelectorAll("header, section");
+		ariaHidden.forEach((elt) => {
+			elt.removeAttribute("aria-hidden");
+		}); //the screen reader again accesses the element of the photographer page when closing the form
+
+		const tabHidden = document.querySelectorAll("header a,  section a, section button");
+		tabHidden.forEach((elt) => {
+			elt.removeAttribute("tabindex");
+		}); // the tab is again available for the buttons and links of the photographer page
+	}
+
+	static closeEvent() {
+		const closeElt = document.querySelector(".closeForm");
+		closeElt.addEventListener("click", () => {
+			this.close();
+		});
+		document.addEventListener("keydown", (e) => {
+			if (e.code == "Escape") {
+				this.close();
+			}
 		});
 	}
 }
@@ -71,6 +102,7 @@ let checkEmail = () => {
 	);
 };
 
+//  add blur event to check conditions on inuput
 [firstName, lastName, email].forEach((elt) => {
 	elt.addEventListener("blur", () => {
 		switch (elt) {
@@ -86,7 +118,7 @@ let checkEmail = () => {
 	});
 });
 
-// submit test control
+// submit form
 form.addEventListener("submit", function (e) {
 	e.preventDefault();
 	checkSubmit = true;
@@ -98,12 +130,12 @@ form.addEventListener("submit", function (e) {
 	if (checkSubmit) {
 		const formBground = document.querySelector("#formBground");
 		const main = document.querySelector("main");
-		form.style.animation = "formClose 1s forwards";
-
 		console.log("Prénom : " + firstName.value);
 		console.log("Nom : " + lastName.value);
 		console.log("Email : " + email.value);
 		console.log("Message : " + message.value);
+
+		form.style.animation = "formClose 1s forwards";
 		form.reset();
 		setTimeout(() => {
 			formBground.style.display = "none";
@@ -112,4 +144,4 @@ form.addEventListener("submit", function (e) {
 	}
 });
 
-export { Form };
+export { eventInit };

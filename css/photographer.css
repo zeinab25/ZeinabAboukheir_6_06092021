@@ -115,12 +115,18 @@ section#photographer button:hover {
 	padding-left: 10px;
 	padding-right: 5px;
 }
+.likes button {
+	background-color: transparent;
+	border: none;
+	color: #901c1c;
+}
 
 .heart {
 	cursor: pointer;
+	font-size: 20px;
 }
 
-.heart.active {
+.likes button.active .heart {
 	font-weight: 700;
 }
 
@@ -135,10 +141,13 @@ section#photographer button:hover {
 	color: white;
 	font-weight: 700;
 	font-size: 19px;
+	width: 200px;
 	background-color: #901c1c;
-	padding: 10px;
-	border: none;
+	padding: 10px 25px 10px 15px;
+	border: 0;
 	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
 }
 
 #media p {
