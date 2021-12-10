@@ -128,8 +128,6 @@ form.addEventListener("submit", function (e) {
 	checkEmail();
 
 	if (checkSubmit) {
-		const formBground = document.querySelector("#formBground");
-		const main = document.querySelector("main");
 		console.log("Prénom : " + firstName.value);
 		console.log("Nom : " + lastName.value);
 		console.log("Email : " + email.value);
@@ -138,8 +136,7 @@ form.addEventListener("submit", function (e) {
 		form.style.animation = "formClose 1s forwards";
 		form.reset();
 		setTimeout(() => {
-			formBground.style.display = "none";
-			main.style.position = "relative";
+			eventInit.close();
 		}, 1000);
 	}
 });
