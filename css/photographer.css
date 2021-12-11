@@ -5,6 +5,12 @@ main {
 	padding-top: 20px;
 }
 
+main.fixed {
+	position: fixed !important;
+	right: 20%;
+	left: 20%;
+}
+
 section#photographer {
 	display: flex;
 	justify-content: space-between;
@@ -236,7 +242,7 @@ section#photographer button:hover {
 	position: fixed;
 	z-index: 3;
 	left: 0;
-	top: 0px;
+	top: 32px;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.58);
@@ -371,6 +377,7 @@ form h1 {
 	}
 
 	/* form */
+
 	form h1 {
 		max-width: 270px;
 		font-size: 30px;
@@ -412,6 +419,11 @@ form h1 {
 	#mediaCaption {
 		font-size: 16px;
 	}
+
+	/* form */
+	#formBground {
+		top: 0;
+	}
 }
 
 @media screen and (max-width: 375px) {
@@ -436,6 +448,8 @@ form h1 {
 		width: 335px;
 		object-position: 0 20%;
 	}
+
+	/* form */
 
 	form h1 {
 		max-width: 200px;

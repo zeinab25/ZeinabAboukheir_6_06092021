@@ -42,7 +42,7 @@ class eventInit {
 		constactMe.addEventListener("click", () => {
 			formBground.style.display = "flex"; // at the click on the button 'contact me' , the form appears
 			form.style.animation = "formOpen 1s forwards";
-			main.style.position = "fixed";
+			main.classList.add("fixed");
 			const ariaHidden = document.querySelectorAll("header, section");
 			ariaHidden.forEach((elt) => {
 				elt.setAttribute("aria-hidden", "true");
@@ -62,7 +62,7 @@ class eventInit {
 
 		formBground.style.display = "none"; // the form is not visible anymore
 
-		main.style.position = "relative";
+		main.classList.remove("fixed");
 
 		const ariaHidden = document.querySelectorAll("header, section");
 		ariaHidden.forEach((elt) => {
