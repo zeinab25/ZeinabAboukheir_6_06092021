@@ -29,7 +29,9 @@ class Lightbox {
 				ariaHidden.forEach((elt) => {
 					elt.setAttribute("aria-hidden", "true"); // the screen reader has no access anymore to the elements in the background
 				});
-				const tabHidden = document.querySelectorAll("header a,  section a, section button");
+				const tabHidden = document.querySelectorAll(
+					"header a,  section a, section button, select"
+				);
 				tabHidden.forEach((elt) => {
 					elt.setAttribute("tabindex", "-1"); //tabulation is not available anymore for buttons and background link
 				});
@@ -89,7 +91,7 @@ class Lightbox {
 		});
 
 		// the tab is again available for the buttons and links of the photographer page
-		const tabHidden = document.querySelectorAll("header a,  section a, section button");
+		const tabHidden = document.querySelectorAll("header a,  section a, section button, select");
 		tabHidden.forEach((elt) => {
 			elt.removeAttribute("tabindex");
 		});
@@ -103,7 +105,8 @@ class Lightbox {
 	}
 
 	keyboardEvent() {
-		document.addEventListener("keydown", (e) => {
+		const lightboxContent = document.querySelector("#lightboxContent");
+		lightboxContent.addEventListener("keydown", (e) => {
 			if (e.code == "ArrowRight") {
 				this.next(); // navigation right
 			} else if (e.code == "ArrowLeft") {

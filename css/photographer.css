@@ -190,6 +190,7 @@ section#photographer button:hover {
 	justify-content: center;
 	position: relative;
 	margin: 20px;
+	outline: none;
 }
 
 #lightboxContent h2 {
