@@ -15,10 +15,12 @@ class Form {
 
 	showError() {
 		this.input.parentElement.setAttribute("data-error", this.messageError);
+		this.input.setAttribute("aria-invalid", "true");
 	}
 
 	showSuccess() {
 		this.input.parentElement.removeAttribute("data-error");
+		this.input.setAttribute("aria-invalid", "false");
 	}
 
 	checkCondition(conditionInput) {

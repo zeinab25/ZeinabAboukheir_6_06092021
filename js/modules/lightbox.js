@@ -23,6 +23,9 @@ class Lightbox {
 					(obj) => obj.image == MediaSrc || obj.video == MediaSrc
 				); //  use the findIndex method to find the index of the selected media in the photographer's media table
 				main.style.position = "fixed";
+				setTimeout(() => {
+					lightboxBground.focus();
+				}, 0);
 				this.displayMedia(); // add the selected media in the lightbox thanks to the find index
 				lightboxBground.style.display = "flex"; // the ligtbox is visible at the click of the media
 				const ariaHidden = document.querySelectorAll("header, section");
@@ -105,8 +108,9 @@ class Lightbox {
 	}
 
 	keyboardEvent() {
-		const lightboxContent = document.querySelector("#lightboxContent");
-		lightboxContent.addEventListener("keydown", (e) => {
+		const lightboxBground = document.querySelector("#lightboxBground");
+
+		lightboxBground.addEventListener("keydown", (e) => {
 			if (e.code == "ArrowRight") {
 				this.next(); // navigation right
 			} else if (e.code == "ArrowLeft") {

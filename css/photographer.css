@@ -183,6 +183,7 @@ section#photographer button:hover {
 	height: 100%;
 	width: 100%;
 	background-color: white;
+	outline: none;
 }
 #lightboxContent {
 	display: flex;
