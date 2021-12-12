@@ -21,7 +21,7 @@ h1 {
 	color: #901c1c;
 	font-size: 35px;
 	position: absolute;
-	right: 20px;
+	right: 50px;
 	top: 50px;
 	white-space: nowrap;
 }
@@ -98,6 +98,17 @@ article h2 {
 
 /* tablet and mobile version */
 /* Header with h1 */
+@media screen and (min-width: 1430px) {
+	/* h1 */
+	main {
+		position: relative;
+	}
+	h1 {
+		right: -31px;
+		top: -56px;
+	}
+}
+
 @media screen and (max-width: 1430px) {
 	header nav {
 		position: relative;

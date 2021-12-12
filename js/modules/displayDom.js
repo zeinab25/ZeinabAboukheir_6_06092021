@@ -1,3 +1,5 @@
+import { ImageOrVideo } from "./mediaFactory.js";
+
 // displays the DOM elements of the home page and  photographer page
 class Dom {
 	static displayPhotographerHomepage(photographer) {
@@ -62,25 +64,10 @@ class Dom {
 			linkMedia.setAttribute("aria-label", "open image closeup view");
 			linkMedia.setAttribute("href", "#lightboxContent");
 			mediaArticle.insertAdjacentElement("afterbegin", linkMedia);
-			linkMedia.appendChild(this.displayImageOrVideo(obj));
+			linkMedia.appendChild(new ImageOrVideo(obj));
 			containerMedia.appendChild(mediaArticle);
 			mediaSection.appendChild(containerMedia);
 		});
-	}
-
-	static displayImageOrVideo(media) {
-		if (media.video) {
-			const video = document.createElement("video");
-			video.setAttribute("aria-label", media.alt);
-			video.setAttribute("src", media.video);
-			video.innerHTML = `Sorry, your browser doesn't support embedded videos.`;
-			return video;
-		} else {
-			const image = document.createElement("img");
-			image.setAttribute("alt", media.alt);
-			image.setAttribute("src", media.image);
-			return image;
-		}
 	}
 
 	// displays the total number of likes at the bottom of the page

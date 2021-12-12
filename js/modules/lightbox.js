@@ -1,4 +1,4 @@
-import { Dom } from "./displayDom.js";
+import { ImageOrVideo } from "./mediaFactory.js";
 
 class Lightbox {
 	constructor(media) {
@@ -48,7 +48,7 @@ class Lightbox {
 		mediaLightbox.innerHTML = "";
 		const title = document.createElement("h2");
 		title.append(this.media[this.index].title);
-		mediaLightbox.append(Dom.displayImageOrVideo(this.media[this.index]), title);
+		mediaLightbox.append(new ImageOrVideo(this.media[this.index]), title);
 		const video = document.querySelector("#mediaLightbox video");
 		if (video) video.controls = true;
 	}
