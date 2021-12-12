@@ -107,12 +107,6 @@ section#photographer button:hover {
 	font-size: 19px;
 }
 
-#mediaCaption > div {
-	display: flex;
-	align-items: center;
-	padding-left: 10px;
-}
-
 .likes {
 	display: flex;
 	align-items: center;
@@ -154,10 +148,6 @@ section#photographer button:hover {
 	border-radius: 5px;
 	cursor: pointer;
 	outline: none;
-}
-
-#media p {
-	white-space: nowrap;
 }
 
 /* counter likes */

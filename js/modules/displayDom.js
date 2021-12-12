@@ -59,7 +59,7 @@ class Dom {
 			const mediaArticle = document.createElement("article");
 			mediaArticle.setAttribute("aria-label", "media");
 
-			mediaArticle.innerHTML = `<div id= "mediaCaption"><h2>${obj.title}</h2> <div><p>${obj.price} €</p><div class="likes" aria-label="likes"><span >${obj.likes}</span> <button><i class="far fa-heart heart"></i></button></div></div></div>`;
+			mediaArticle.innerHTML = `<div id= "mediaCaption"><h2>${obj.title}</h2> <div class="likes" aria-label="likes"><span >${obj.likes}</span> <button><i class="far fa-heart heart"></i></button></div></div>`;
 			const linkMedia = document.createElement("a");
 			linkMedia.setAttribute("aria-label", "open image closeup view");
 			linkMedia.setAttribute("href", "#lightboxContent");

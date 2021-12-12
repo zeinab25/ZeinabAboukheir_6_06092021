@@ -1,3 +1,4 @@
+//display media on photographer page according to their format (image or video)
 class ImageOrVideo {
 	constructor(media) {
 		this.media = media;
